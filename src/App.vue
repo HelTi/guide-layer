@@ -1,19 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div>新手引导一</div>
+    <e-guide-layer :currentIndex="guideActiveIndex" :guideList="guideList" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
-  name: "App",
-  components: {
-    HelloWorld
+  name: 'App',
+  data() {
+    return {
+      guideActiveIndex: 1,
+      guideList: [
+        {
+          text: 'step1',
+          clickHandle: () => {
+            alert('step1')
+            console.log(this)
+          }
+        },
+        {
+          text: 'step2',
+          clickHandle: () => {
+            alert('step2')
+            console.log(this)
+            this.guideActiveIndex += 1
+          }
+        },
+        {
+          text: 'step3',
+          clickHandle: () => {
+            alert('step3')
+            console.log(this)
+            this.guideActiveIndex += 1
+          }
+        }
+      ]
+    }
   }
-};
+}
 </script>
 
 <style lang="scss">
