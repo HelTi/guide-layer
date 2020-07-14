@@ -5,12 +5,11 @@ export default {
   render(h, context) {
     console.log('context', context)
     return (
-      <div
-        class="e-guide-item"
-        {...context.data}
-        onClick={context.data.clickHandle}
-      >
-        {context.data.text}
+      <div class="e-guide-item" {...context.data}>
+        {context.data.render && context.data.render()}
+        <div onClick={context.data.clickHandle} class="confirm-btn">
+          {context.data.text}
+        </div>
       </div>
     )
   }

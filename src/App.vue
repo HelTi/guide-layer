@@ -10,13 +10,16 @@ export default {
   name: 'App',
   data() {
     return {
-      guideActiveIndex: 1,
+      guideActiveIndex: 0,
       guideList: [
         {
           text: 'step1',
           clickHandle: () => {
             alert('step1')
             console.log(this)
+          },
+          render: () => {
+            return <div onClick={this.step1ClickHandle}>自定义</div>
           }
         },
         {
@@ -36,6 +39,12 @@ export default {
           }
         }
       ]
+    }
+  },
+  methods: {
+    step1ClickHandle() {
+      alert('step1ClickHandle')
+      this.guideActiveIndex += 1
     }
   }
 }
