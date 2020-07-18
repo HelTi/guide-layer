@@ -1,7 +1,16 @@
 <template>
   <div id="app">
-    <div>新手引导一</div>
-    <e-guide-layer :currentIndex="guideActiveIndex" :guideList="guideList" />
+    <div class="step1">新手引导1</div>
+    <div style="height:300px;margin-top:20px;">
+      这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
+    </div>
+    <div class="step2">引导2</div>
+    <div class="step3">点击领红包</div>
+    <e-guide-layer
+      v-if="showGuide"
+      :currentIndex.sync="guideActiveIndex"
+      :guideList="guideList"
+    />
   </div>
 </template>
 
@@ -14,8 +23,9 @@ export default {
       guideList: [
         {
           text: 'step1',
+          targetDom: '.step1',
           clickHandle: () => {
-            alert('step1')
+            this.guideActiveIndex = 1
             console.log(this)
           },
           render: () => {
@@ -24,21 +34,22 @@ export default {
         },
         {
           text: 'step2',
+          targetDom: '.step2',
           clickHandle: () => {
-            alert('step2')
+            this.guideActiveIndex = 2
             console.log(this)
-            this.guideActiveIndex += 1
           }
         },
         {
           text: 'step3',
+          targetDom: '.step3',
           clickHandle: () => {
-            alert('step3')
+            this.guideActiveIndex = 3
             console.log(this)
-            this.guideActiveIndex += 1
           }
         }
-      ]
+      ],
+      showGuide: true
     }
   },
   methods: {
@@ -52,11 +63,38 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  position: relative;
+  padding: 20px;
+
+  .step1 {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step2 {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    background: #ce6349;
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .step3 {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 160px;
+    line-height: 30px;
+    height: 30px;
+    background: #ddeedd;
+    border-radius: 8px;
+    padding-left: 10px;
+    color: #ce6349;
+  }
 }
 </style>

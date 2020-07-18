@@ -19,30 +19,22 @@ export default {
     },
     guideList: {
       type: Array,
-      default: () => [
-        {
-          text: '下一步1',
-          clickHandle: () => {
-            alert('下一步1')
-          }
-        },
-        {
-          text: '下一步2'
-        },
-        {
-          text: '你知道'
-        }
-      ]
+      default: () => []
     }
   },
   render() {
     let currentIndex = this.currentIndex
     let currentActiveGuideItemData = this.guideList[currentIndex]
-    console.log(currentIndex)
+    console.log('currentIndex', currentIndex, currentActiveGuideItemData)
     return (
       <div>
         {currentActiveGuideItemData && (
-          <GuideItem {...currentActiveGuideItemData} />
+          <GuideItem
+            key={currentIndex}
+            targetDom={currentActiveGuideItemData.targetDom}
+            confirmBtnText={currentActiveGuideItemData.text}
+            vOn:confirm={currentActiveGuideItemData.clickHandle}
+          />
         )}
       </div>
     )
