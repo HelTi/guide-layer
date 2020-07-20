@@ -24,6 +24,10 @@ export default {
     confirmBtnText: {
       type: String,
       default: '下一步'
+    },
+    padding: {
+      type: Number,
+      default: 6
     }
   },
   mounted() {
@@ -69,11 +73,8 @@ export default {
       } else {
         dom = document.querySelector(className)
       }
-      console.log('dom', dom)
-      console.log('style', getComputedStyle(dom))
       let borderRadius = getComputedStyle(dom).borderRadius
       let info = dom.getBoundingClientRect()
-      console.log('info', info)
       let { bottom, top, left, right, height, width } = info
       return {
         bottom,
@@ -86,19 +87,25 @@ export default {
       }
     },
     setGuideDomStyle({ top, left, height, width, borderRadius }) {
+      // 设置指向dom的节点位置
+      let border_radius = 0
+      if (borderRadius) {
+        let bdr = borderRadius.split('px')
+        border_radius = bdr[0] * 1
+      }
+
       let styleObg = {
-        width: width + 'px',
-        height: height + 'px',
-        top: top + 'px',
-        left: left + 'px',
+        width: width + this.padding + 'px',
+        height: height + this.padding + 'px',
+        top: top - this.padding / 2 + 'px',
+        left: left - this.padding / 2 + 'px',
         zIndex: this.$parent.$props.zIndex + 1,
-        borderRadius: borderRadius ? borderRadius : null
+        borderRadius: border_radius + this.padding / 2 + 'px'
       }
       return styleObg
     },
     confirmHandle() {
-      console.log(this.$parent)
-      this.$parent.currentIndex++
+      this.$parent.current++
       // 点击确定的自定义事件
       this.$emit('confirm')
     }
@@ -113,7 +120,6 @@ export default {
   box-shadow: 0 0 0 3000px rgba(0, 0, 0, 0.7);
   box-sizing: content-box;
   z-index: 10000;
-  padding: 2px;
 }
 
 .step-bottom {

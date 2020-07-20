@@ -3,7 +3,9 @@ import GuideItem from './GuidItem'
 export default {
   name: 'e-guide-layer',
   data() {
-    return {}
+    return {
+      current: 0
+    }
   },
   methods: {},
   props: {
@@ -22,8 +24,15 @@ export default {
       default: () => []
     }
   },
+  watch: {
+    currentIndex(newVal) {
+      if (newVal) {
+        this.current = newVal
+      }
+    }
+  },
   render() {
-    let currentIndex = this.currentIndex
+    let currentIndex = this.current
     let currentActiveGuideItemData = this.guideList[currentIndex]
     console.log('currentIndex', currentIndex, currentActiveGuideItemData)
     return (
