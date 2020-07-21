@@ -2,6 +2,7 @@
   <div class="guide-item-wrapper">
     <div class="step-top" :style="stepTopStyle"></div>
     <div class="step-bottom" :style="stepBottomStyle">
+      <img class="guide-img" :style="guideImgStyle" src="@/assets/guide.png" />
       <div class="btn" @click="confirmHandle">{{ confirmBtnText }}</div>
     </div>
   </div>
@@ -28,6 +29,10 @@ export default {
     padding: {
       type: Number,
       default: 6
+    },
+    guideImgHeight: {
+      type: String,
+      default: '30px'
     }
   },
   mounted() {
@@ -55,6 +60,11 @@ export default {
         }
       } else {
         return null
+      }
+    },
+    guideImgStyle() {
+      return {
+        height: this.guideImgHeight
       }
     }
   },
