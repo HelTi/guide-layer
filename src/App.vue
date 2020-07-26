@@ -22,7 +22,7 @@ export default {
       guideActiveIndex: 0,
       guideList: [
         {
-          text: 'step1',
+          text: '下一步',
           targetDom: '.step1',
           clickHandle: () => {
             this.guideActiveIndex = 1
@@ -33,7 +33,7 @@ export default {
           }
         },
         {
-          text: 'step2',
+          text: '下一步',
           targetDom: '.step2',
           clickHandle: () => {
             this.guideActiveIndex = 2
@@ -41,8 +41,9 @@ export default {
           }
         },
         {
-          text: 'step3',
+          text: '知道了',
           targetDom: '.step3',
+          direction: 'down',
           clickHandle: () => {
             this.guideActiveIndex = 3
             console.log(this)

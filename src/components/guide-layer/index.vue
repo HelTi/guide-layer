@@ -9,12 +9,6 @@ export default {
   },
   methods: {},
   props: {
-    func: {
-      type: Function,
-      default: () => {
-        alert('222')
-      }
-    },
     currentIndex: {
       type: Number,
       default: 0
@@ -22,13 +16,20 @@ export default {
     guideList: {
       type: Array,
       default: () => []
+    },
+    zIndex: {
+      type: Number,
+      default: 999
     }
   },
   watch: {
-    currentIndex(newVal) {
-      if (newVal) {
-        this.current = newVal
-      }
+    currentIndex: {
+      handler: function(newVal) {
+        if (newVal) {
+          this.current = newVal
+        }
+      },
+      immediate: true
     }
   },
   render() {
@@ -42,6 +43,7 @@ export default {
             key={currentIndex}
             targetDom={currentActiveGuideItemData.targetDom}
             confirmBtnText={currentActiveGuideItemData.text}
+            direction={currentActiveGuideItemData.direction}
             vOn:confirm={currentActiveGuideItemData.clickHandle}
           />
         )}

@@ -1,9 +1,28 @@
 <template>
   <div class="guide-item-wrapper">
     <div class="step-top" :style="stepTopStyle"></div>
-    <div class="step-bottom" :style="stepBottomStyle">
-      <img class="guide-img" :style="guideImgStyle" src="@/assets/guide.png" />
-      <div class="btn" @click="confirmHandle">{{ confirmBtnText }}</div>
+    <div ref="step_bottom" class="step-bottom" :style="stepBottomStyle">
+      <template v-if="direction === 'down'">
+        <div class="step-bottom-btn" @click="confirmHandle">
+          {{ confirmBtnText }}
+        </div>
+        <img
+          class="guide-img"
+          style="transform: rotateX(180deg);"
+          :style="guideImgStyle"
+          src="@/assets/guide.png"
+        />
+      </template>
+      <template v-else>
+        <img
+          class="guide-img"
+          :style="guideImgStyle"
+          src="@/assets/guide.png"
+        />
+        <div class="step-bottom-btn" @click="confirmHandle">
+          {{ confirmBtnText }}
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -33,6 +52,11 @@ export default {
     guideImgHeight: {
       type: String,
       default: '30px'
+    },
+    direction: {
+      // 展示在目标节点到上面还是下面
+      type: String,
+      default: 'up'
     }
   },
   mounted() {
@@ -53,11 +77,18 @@ export default {
     stepBottomStyle() {
       if (this.guideDomInfo) {
         let { top, left, height } = this.guideDomInfo
-        return {
+        let domStyleObj = {
           top: top + height + 10 + 'px',
           left: left + 30 + 'px',
           zIndex: this.$parent.$props.zIndex + 2
         }
+        if (this.direction === 'down') {
+          let step_bottom_info = this.$refs.step_bottom.getBoundingClientRect()
+          console.log('step_bottom_info', step_bottom_info)
+          domStyleObj.top = top - step_bottom_info.height - 10 + 'px'
+        }
+
+        return domStyleObj
       } else {
         return null
       }
@@ -112,6 +143,7 @@ export default {
         zIndex: this.$parent.$props.zIndex + 1,
         borderRadius: border_radius + this.padding / 2 + 'px'
       }
+
       return styleObg
     },
     confirmHandle() {
@@ -136,10 +168,7 @@ export default {
   position: fixed;
   z-index: 10001;
   width: 220px;
-  .text {
-    width: 100%;
-  }
-  .btn {
+  .step-bottom-btn {
     width: 100px;
     display: flex;
     align-items: center;
