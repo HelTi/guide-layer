@@ -45,7 +45,10 @@ export default {
             confirmBtnText={currentActiveGuideItemData.text}
             direction={currentActiveGuideItemData.direction}
             vOn:confirm={currentActiveGuideItemData.clickHandle}
-          />
+          >
+            {currentActiveGuideItemData.render &&
+              currentActiveGuideItemData.render()}
+          </GuideItem>
         )}
       </div>
     )

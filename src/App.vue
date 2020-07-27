@@ -27,9 +27,6 @@ export default {
           clickHandle: () => {
             this.guideActiveIndex = 1
             console.log(this)
-          },
-          render: () => {
-            return <div onClick={this.step1ClickHandle}>自定义</div>
           }
         },
         {
@@ -38,6 +35,16 @@ export default {
           clickHandle: () => {
             this.guideActiveIndex = 2
             console.log(this)
+          },
+          render: () => {
+            return (
+              <div
+                style="background-color:#fff;"
+                onClick={this.step1ClickHandle}
+              >
+                自定义引导层区域
+              </div>
+            )
           }
         },
         {
