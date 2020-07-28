@@ -1,12 +1,26 @@
 {
-  "name": "guide-layer",
+  "name": "e-guide-layer",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "dist/eGuideLayer.umd.min.js",
+  "unpkg": "dist/eGuideLayer.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib --name eGuideLayer src/components/index.js"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "vue",
+    "guide",
+    "guide layer"
+  ],
+  "jsnext:main": "dist/eGuideLayer.umd.min.js",
+  "author": "helti",
+  "license": "MIT",
   "dependencies": {
     "core-js": "^3.6.5",
     "normalize.css": "^8.0.1",
@@ -25,5 +39,9 @@
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/HelTi/guide-layer/issues"
+  },
+  "homepage": "https://github.com/HelTi/guide-layer#readme"
 }

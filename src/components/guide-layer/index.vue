@@ -35,14 +35,14 @@ export default {
   render() {
     let currentIndex = this.current
     let currentActiveGuideItemData = this.guideList[currentIndex]
-    console.log('currentIndex', currentIndex, currentActiveGuideItemData)
+    // console.log('currentIndex', currentIndex, currentActiveGuideItemData)
     return (
       <div>
         {currentActiveGuideItemData && (
           <GuideItem
             key={currentIndex}
             targetDom={currentActiveGuideItemData.targetDom}
-            confirmBtnText={currentActiveGuideItemData.text}
+            confirmBtnText={currentActiveGuideItemData.confirmBtnText}
             direction={currentActiveGuideItemData.direction}
             vOn:confirm={currentActiveGuideItemData.clickHandle}
           >

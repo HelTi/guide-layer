@@ -1,5 +1,5 @@
 # e-guide-layer
-> 基于vue jsx的新手引导层组件，只需要配置一定的参数即可
+基于vue jsx的新手引导层组件，只需要配置一定的参数即可
 
 ## 安装
 ```js
@@ -7,40 +7,51 @@ npm install e-guide-layer --save
 ```
 ## 使用
 ```js
+import 'e-guide-layer/dist/eGuideLayer.css'
 import eGuideLayer from 'e-guide-layer'
 
 Vue.use(eGuideLayer)
 ```
-### 基础代码演示
+### 基础代码示例
 ```js
 <e-guide-layer
-      :currentIndex.sync="guideActiveIndex"
-      :guideList="guideList"
+      :current-index.sync="guideActiveIndex"
+      :guide-list="guideList"
 />
 
 export default {
     data() {
     return {
       guideActiveIndex: 0,
-      guideList: [  // 配置
+      guideList: [
         {
-          text: '下一步',
+          confirmBtnText: '下一步',
           targetDom: '.step1',
           clickHandle: () => {
             this.guideActiveIndex = 1
             console.log(this)
-          },
+          }
         },
         {
-          text: '下一步',
+          confirmBtnText: '下一步',
           targetDom: '.step2',
           clickHandle: () => {
             this.guideActiveIndex = 2
             console.log(this)
+          },
+          render: () => {
+            return (
+              <div
+                style="background-color:#fff;"
+                onClick={this.step1ClickHandle}
+              >
+                自定义引导层区域
+              </div>
+            )
           }
         },
         {
-          text: '知道了',
+          confirmBtnText: '知道了',
           targetDom: '.step3',
           direction: 'down',
           clickHandle: () => {
@@ -48,7 +59,7 @@ export default {
             console.log(this)
           }
         }
-      ]
+      ],
     }
   },
 
@@ -59,6 +70,29 @@ export default {
 
 ```
 
-## 配置说明
+## API 配置说明
+
+### e-guide-layer  Props
+|  参数   | 说明  |  类型  |  默认值  |
+|  ----  | ----  | ----  | ----  |
+| guide-list  | 引导层配置集合 | Array | [] |
+| current-index  | 当前激活的引导层 | Number | 0 |
+| z-index  | 引导层最小的z-index值 | Number | 999 |
+
+#### guide-list的GuideItem 配置项
+|  参数   | 说明  |  类型  |  默认值  |
+|  ----  | ----  | ----  | ----  |
+| targetDom  | 引导层指向的节点 | String | null |
+| confirmBtnText  | 引导层确定按钮 | String | 下一步 |
+| padding  | 覆盖指向节点的paddng,使产生空隙 | Number | 6 |
+| guideImgSrc  | 指向节点与确认按钮之间的图片 | String | 默认箭头图片|
+| guideImgHeight  | 指引图片的高度 | String | 30px|
+| direction  | 引导指示实在目标的上面还是下面 (up  down) | String | up|
+| render  | 使用jsx自定义的内容 | function | null|
+
+
+
+
+
 
 

@@ -8,8 +8,8 @@
     <div class="step3">点击领红包</div>
     <e-guide-layer
       v-if="showGuide"
-      :currentIndex.sync="guideActiveIndex"
-      :guideList="guideList"
+      :current-index.sync="guideActiveIndex"
+      :guide-list="guideList"
     />
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
       guideActiveIndex: 0,
       guideList: [
         {
-          text: '下一步',
+          confirmBtnText: '下一步',
           targetDom: '.step1',
           clickHandle: () => {
             this.guideActiveIndex = 1
@@ -30,7 +30,7 @@ export default {
           }
         },
         {
-          text: '下一步',
+          confirmBtnText: '下一步',
           targetDom: '.step2',
           clickHandle: () => {
             this.guideActiveIndex = 2
@@ -48,7 +48,7 @@ export default {
           }
         },
         {
-          text: '知道了',
+          confirmBtnText: '知道了',
           targetDom: '.step3',
           direction: 'down',
           clickHandle: () => {

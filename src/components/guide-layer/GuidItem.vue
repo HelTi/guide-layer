@@ -33,8 +33,7 @@ export default {
   name: 'e-guide-item',
   data() {
     return {
-      guideDomInfo: null,
-      guideImgSrc: guideImg
+      guideDomInfo: null
     }
   },
   props: {
@@ -58,10 +57,13 @@ export default {
       // 展示在目标节点到上面还是下面
       type: String,
       default: 'up'
+    },
+    guideImgSrc: {
+      type: String,
+      default: guideImg
     }
   },
   mounted() {
-    console.log('targetDom', this.targetDom)
     this.$nextTick(() => {
       this.getTargetDomStyle()
     })
@@ -69,7 +71,7 @@ export default {
   computed: {
     stepTopStyle() {
       if (this.guideDomInfo) {
-        console.log('stepTopStyle', this.setGuideDomStyle(this.guideDomInfo))
+        // console.log('stepTopStyle', this.setGuideDomStyle(this.guideDomInfo))
         return this.setGuideDomStyle(this.guideDomInfo)
       } else {
         return null
@@ -105,7 +107,7 @@ export default {
       // 获取要指向页面dom的节点
       let domInfo = this.getDomInfo(this.targetDom)
       this.guideDomInfo = domInfo
-      console.log('guideDomInfo', this.guideDomInfo)
+      // console.log('guideDomInfo', this.guideDomInfo)
     },
     getDomInfo(className) {
       // 获取dom节点的信息
