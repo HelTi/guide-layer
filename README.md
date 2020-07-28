@@ -88,6 +88,7 @@ export default {
 | guideImgSrc  | 指向节点与确认按钮之间的图片 | String | 默认箭头图片|
 | guideImgHeight  | 指引图片的高度 | String | 30px|
 | direction  | 引导指示实在目标的上面还是下面 (up  down) | String | up|
+| clickHandle  | 点击引导层确定按钮的事件 | function | null|
 | render  | 使用jsx自定义的内容 | function | null|
 
 
