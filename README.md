@@ -82,7 +82,7 @@ export default {
 #### guide-list的GuideItem 配置项
 |  参数   | 说明  |  类型  |  默认值  |
 |  ----  | ----  | ----  | ----  |
-| targetDom  | 引导层指向的节点 | String | null |
+| targetDom  | 引导层指向的节点(class,id,dom) | String | null |
 | confirmBtnText  | 引导层确定按钮 | String | 下一步 |
 | padding  | 覆盖指向节点的paddng,使产生空隙 | Number | 6 |
 | guideImgSrc  | 指向节点与确认按钮之间的图片 | String | 默认箭头图片|
@@ -90,6 +90,9 @@ export default {
 | direction  | 引导指示实在目标的上面还是下面 (up  down) | String | up|
 | clickHandle  | 点击引导层确定按钮的事件 | function | null|
 | render  | 使用jsx自定义的内容 | function | null|
+
+## License
+MIT
 
 
 
