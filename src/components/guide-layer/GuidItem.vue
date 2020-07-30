@@ -87,7 +87,7 @@ export default {
         }
         if (this.direction === 'down') {
           let step_bottom_info = this.$refs.step_bottom.getBoundingClientRect()
-          console.log('step_bottom_info', step_bottom_info)
+          // console.log('step_bottom_info', step_bottom_info)
           domStyleObj.top = top - step_bottom_info.height - 10 + 'px'
         }
 

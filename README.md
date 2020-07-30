@@ -1,6 +1,8 @@
 # e-guide-layer
-基于vue jsx的新手引导层组件，只需要配置一定的参数即可
+基于vue jsx的新手引导层组件，只需要配置一定的参数即可，项目需要支持vue jsx
 
+## 演示
+![演示](images/gif.gif)
 ## 安装
 ```js
 npm install e-guide-layer --save
@@ -11,6 +13,14 @@ import 'e-guide-layer/dist/eGuideLayer.css'
 import eGuideLayer from 'e-guide-layer'
 
 Vue.use(eGuideLayer)
+```
+## dev
+```
+npm run serve
+```
+## build
+```
+npm run build
 ```
 ### 基础代码示例
 ```js
@@ -29,7 +39,6 @@ export default {
           targetDom: '.step1',
           clickHandle: () => {
             this.guideActiveIndex = 1
-            console.log(this)
           }
         },
         {
@@ -37,7 +46,6 @@ export default {
           targetDom: '.step2',
           clickHandle: () => {
             this.guideActiveIndex = 2
-            console.log(this)
           },
           render: () => {
             return (
@@ -56,7 +64,6 @@ export default {
           direction: 'down',
           clickHandle: () => {
             this.guideActiveIndex = 3
-            console.log(this)
           }
         }
       ],
