@@ -9,13 +9,14 @@ npm install e-guide-layer --save
 ```
 ## 使用
 ```js
-import 'e-guide-layer/dist/eGuideLayer.css'
+import 'e-guide-layer/dist/e-guide-layer.css'
 import eGuideLayer from 'e-guide-layer'
 
 Vue.use(eGuideLayer)
 ```
 ## dev
-```
+```js
+// node >=8.9
 npm run serve
 ```
 ## build

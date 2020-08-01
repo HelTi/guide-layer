@@ -2,12 +2,12 @@
   "name": "e-guide-layer",
   "version": "0.1.0",
   "private": false,
-  "main": "dist/eGuideLayer.umd.min.js",
-  "unpkg": "dist/eGuideLayer.umd.min.js",
+  "main": "dist/e-guide-layer.umd.min.js",
+  "unpkg": "dist/e-guide-layer.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name eGuideLayer src/components/index.js"
+    "build": "vue-cli-service build --target lib --name e-guide-layer src/components/index.js"
   },
   "files": [
     "dist",
@@ -18,7 +18,7 @@
     "guide",
     "guide layer"
   ],
-  "jsnext:main": "dist/eGuideLayer.umd.min.js",
+  "jsnext:main": "dist/e-guide-layer.umd.min.js",
   "author": "helti",
   "license": "MIT",
   "dependencies": {
