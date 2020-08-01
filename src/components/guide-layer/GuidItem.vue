@@ -158,27 +158,29 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.step-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: 0 0 0 3000px rgba(0, 0, 0, 0.7);
-  box-sizing: content-box;
-  z-index: 10000;
-}
+.guide-item-wrapper {
+  .step-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 0 3000px rgba(0, 0, 0, 0.7);
+    box-sizing: content-box;
+    z-index: 10000;
+  }
 
-.step-bottom {
-  position: fixed;
-  z-index: 10001;
-  width: 220px;
-  .step-bottom-btn {
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    border-radius: 15px;
-    background: #ffffff;
+  .step-bottom {
+    position: fixed;
+    z-index: 10001;
+    width: 220px;
+    .step-bottom-btn {
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      border-radius: 15px;
+      background: #ffffff;
+    }
   }
 }
 </style>
